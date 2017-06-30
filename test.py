@@ -20,7 +20,16 @@ clf.fit(X,y)
 
 print(clf.predict(X[1]))
 
-# plot outlier detection, tells if data
+f.close()
+
+
+
+# plot outlier detection, tells if data input is different than normal
+# normal is considered to be non-heart disease
+
+f = open('heart.csv')
+csv_f = csv.reader(f)
+
 yyy = []
 XX = []
 for row in csv_f:
@@ -33,4 +42,4 @@ clf = svm.OneClassSVM(nu=0.261, gamma=0.05)
 
 clf.fit(XX)
 
-print(clf.predict(XX[100]))
+print(clf.predict(X[1])) # should be different
